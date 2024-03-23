@@ -14,4 +14,13 @@ sum(case when month = 'Dec' then revenue end) as Dec_Revenue
 from Department 
 group by id
 
+2]
+select  g.genre, max((i.rating+i.metacritic/10)/2) weighted_rating 
+from genre g 
+ join imdb i  on g.movie_id =i.movie_id
+where  g.genre is not null and i.title like '%2014%'  
+group by g.genre
+order by g.genre asc 
+
+ 
 
